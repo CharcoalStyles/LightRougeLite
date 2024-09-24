@@ -25,22 +25,25 @@ class FlxCstyLogo extends FlxState
 	private var updatingPixels:Array<UpdPix>;
 
 	private var logoFinished:Bool = false;
+	private var isSkiping:Bool = false;
 
 	public function new(nextState:FlxState, skip:Bool)
 	{
 		super();
 
 		this.nextState = nextState;
-    if (skip)
-    {
-      onFade();
-    }
+		this.isSkiping = skip;
 	}
 
 	override public function create():Void
 	{
 		super.create();
 		FlxG.mouse.visible = false;
+
+		if (isSkiping)
+		{
+			onFade();
+		}
 
 		bkgrnd = new FlxSprite();
 		bkgrnd.makeGraphic(FlxG.width, FlxG.height);
