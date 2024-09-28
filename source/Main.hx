@@ -12,7 +12,7 @@ class Main extends Sprite
 		super();
 		addChild(new FlxGame(0, 0, () ->
 		{
-			new FlxCstyLogo(new PlayState(), true);
+			new FlxCstyLogo(new MenuState(), true);
 		}));
 	}
 }
